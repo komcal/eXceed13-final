@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>S.F.A.S - Login</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+</head>
+
+<body>
+  <div>
+    <h1><center>Smart Fire Alarm System<br /><br /><br /><br />Login</center></h1>
+    <center>
+      <form id="login">
+        <label>Username <input type="text" id="userid" placeholder="name@email.com"/><br /></label>
+        <label>Password <input type="password" id="password" placeholder="password" /><br /></label>
+        <input type="button" onclick="check(this.form)" value="Login" />
+        <input type="reset" value="Cancel" />
+      </form>
+    </center>
+  </div>
+
+  <script type='text/javascript'>
+    var form = $('#form');
+    var usernameField = $('#userid');
+    var passwordField = $('#password');
+
+    function check(form) {
+      if (usernameField.val() == "sfas13@gmail.com" && passwordField.val() == "xplusequal13") {
+        window.location.replace('home.html');
+        window.close();
+      }
+      else {
+        alert('Please Login Again');
+        usernameField.val('');
+        passwordField.val('');
+      }
+    }
+
+    usernameField.keyup(function(e) {
+      if (e.keyCode === 13) check(form);
+    })
+
+    passwordField.keyup(function(e) {
+      if (e.keyCode === 13) check(form);
+    })
+  </script>
+</body>
+
+</html>

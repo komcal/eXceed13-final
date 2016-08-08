@@ -1,0 +1,56 @@
+body{
+   background: #FFCCBC;
+}
+.square {
+   background: red;
+   text-align:center;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   color: #fff;
+   font-family: Helvetica;
+   font-weight: normal;
+   font-size:20px;
+   font-weight: normal;
+}
+.square:hover{
+   background: yellow;
+   color:red;
+   text-shadow: :red;
+}
+#middle h1{
+   font-size: 40px;
+   line-height: 0vw;
+
+}
+#middle h3 {
+   font-size: 20px;
+   line-height:130px;
+}
+#middle{
+   width: 300px;
+   height: 200px;
+}
+
+#left{
+   height: 127px;
+   width: 300px;
+}
+#left h1{
+   font-size: 30px;
+   line-height: 0vw;
+
+}
+#left h3 {
+   font-size: 20px;
+   line-height:70px;
+}
+/*#right h1{
+   font-size: 20px;
+   line-height: 0vw;
+
+}
+#right h3 {
+   font-size: 20px;
+   line-height:260px;
+}*/

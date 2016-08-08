@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
+    <script src="/stylesheets/jquery-3.1.0.min.js"></script>
+    <script src="/libs/exceed.lib.js"></script>
+    <link rel="stylesheet" href="index.css">
+<!-- clock-->
+<link type="text/css" rel="stylesheet" href="clock_assets/flipclock.css" />
+    <!--  new code -->
+    <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+  }
+  </style>
+
+<body>
+
+<!-- clock-->
+
+  <!---->
+    <div class="row">
+      <div id="container" class="col-xs-12 col-md-6 col-md-offset-3">
+      </div>
+    </div>
+    <!--new code -->
+    <div class="container">
+  <br>
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+<!-- seach-->
+<br>
+<br>
+<br>
+
+<form>
+  <input type="text" name="search" placeholder="Search.. for Location">
+</form>
+<br>
+<br>
+<br>
+<div id="table-wrapper">
+    <div id="table-scroll">
+        <table bgcolor="white" border="0" cellpadding="0" cellspacing="0" id="header-fixed" width="100%" overflow="scroll" class="table table-striped table-bordered">
+            <thead id="thead">
+                <tr>
+                  <th>LOCATION</th>
+                  <th>TEMPERATURE</th>
+                  <th>HUMIDITY</th>
+                  <th>CROWDEDNESS</th>
+                  <th>INFO</th>
+                  <th>ALERT</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<br>
+<br>
+<!-- thumbnail-->
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail"id="one">
+						<img alt="Bootstrap Thumbnail First" src="http://www.newage-uae.com/images/fire_banner.jpg" />
+						<div class="caption"id="two">
+							<h3>
+								False alarms kill
+							</h3>
+							<p>
+								False alarms waste valuable manpower and resources, which may be needed desperately at a real emergency. Also, any time firefighters ride trucks, they are at risk. Eighteen percent of firefighter deaths occur while responding to calls.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail"id="one">
+						<img alt="Bootstrap Thumbnail Second" src="http://noblefiretech.com/online/wp-content/uploads/2015/11/Slide-1.jpg" />
+						<div class="caption"id="two">
+							<h3>
+								Don’t play with fire
+							</h3>
+							<p>
+								Playing with fire causes many unnecessary emergencies, it hurts and kills many people.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail"id="one">
+						<img alt="Bootstrap Thumbnail Third" src="http://www.safetyservicescompany.com/wp-content/uploads/2013/10/Fire-Prevention-Week-2013.png" />
+						<div class="caption"id="two">
+							<h3>
+								Don't just leave to do something else
+							</h3>
+							<p>
+								One of the most common reasons for fires is how people often leave stoves, ovens, toasters, clothing irons, barbecues, and candles unattended.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Wrapper for slides -->
+<div class="carousel-inner" role="listbox">
+  <div class="item active">
+    <img src="head1.png" alt="Chania" width="460" height="345">
+  </div>
+
+  <div class="item">
+    <img src="head2.png" alt="Chania" width="460" height="345">
+  </div>
+
+  <div class="item">
+    <img src="head3.png" alt="Flower" width="460" height="345">
+  </div>
+
+<!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
+</div>
+<!-- -->
+
+  <script type='text/javascript'>
+    var information = [];
+    var place = [];
+    var temp = [];
+    var people = [];
+    var humidity = [];
+    var smoke = [];
+    var gas = [];
+    var allData = [];
+    var fire = false;
+    function updateTable(check) {
+      var c = place.length;
+      var row = $('<tr class="'+c+'"></tr>');
+      if (computeDanger(smoke[smoke.length - 1])){
+        row = $('<tr id="red"></tr>');
+        fire = true;
+      }
+      else if(!computeDanger(smoke[smoke.length - 1]) && fire && check === 1) {
+        fire = false;
+        $.ajax({
+          url: 'http://localhost:8080/fire'
+        })
+        .success(function() {
+          console.log('update fire');
+        })
+        if(humidity[humidity.length - 1] >= 70) {
+          $.ajax({
+            url: 'http://localhost:8080/spinker'
+          })
+          .success(function() {
+            console.log('update spinker');
+          })
+        }
+      }
+      else fire = false;
+      var col1 = $('<td>' + place[place.length - 1] + '</td>');
+      var col2 = $('<td>' + temp[temp.length - 1] + '</td>');
+      var col3 = $('<td>' + humidity[humidity.length - 1] + '</td>');
+      var col4 = $('<td>' + people[people.length - 1] + '</td>');
+      var col5 = $('<td><button type="button" class="btn btn-danger btn-sm btn-show-'+c+'">SHOW</button></td>');
+      var col6 = $('<td>SAFE</td>');
+      if (computeDanger(smoke[smoke.length - 1])) col6 = $('<td><button type="button" class="btn btn-danger btn-sm " onClick="sendToHW()">ALERT</button></td>');
+      $('#thead').after(row.append(col1, col2, col3, col4, col5, col6));
+      $('.btn-show-'+c).on('click', function() {
+        window.location.replace('/information');
+        window.close();
+      });
+    }
+    function sendToHW() {
+      $.ajax({
+        url: 'http://10.32.176.4/xplusequal13/test'
+      })
+      .success(function() {
+        console.log('send data to HW success');
+      })
+    }
+    function getFirstData() {
+      $.ajax({
+        // url: 'http://10.32.176.4/xplusequal13-all-data'
+        url: 'http://localhost:8080/logs'
+      })
+      .success(function(data) {
+        allData = data.split('*');
+        // console.log(allData);
+        allData.map(function(d) {
+          information = d.split(',');
+          // information.shift(); //only localhost
+          if(information[0] === "") information.shift();
+          place.push(information[0]);
+          temp.push(information[1]);
+          people.push(information[2]);
+          humidity.push(information[3]);
+          smoke.push(information[4]);
+          gas.push(information[5]);
+          if (place[place.length - 1] !== undefined) updateTable(0);
+        });
+      })
+    }
+    function getInfo() {
+      var d = ""
+      $.ajax({
+        url: 'http://10.32.176.4/xplusequal13'
+        // url: 'http://localhost:8080/data'
+      })
+      .success(function(data) {
+        if(allData.length >= 30) {
+          allData.shift();
+        }
+        allData.push(data+'*');
+        d = data + '*';
+        $.ajax({
+          // url: 'http://10.32.176.4/xplusequal13-all-data/'+allData+'/set'
+          url: 'http://localhost:8080/write/'+d+'/set'
+        })
+        information = data.split(',');
+        // information.shift(); //only localhost
+      })
+    }
+
+    function computeDanger(smoke) {
+      return smoke > 50 ? true : false;
+    }
+
+    // function alertFire() {
+    //   $.ajax({
+    //     url: 'http://10.32.176.4/x+=13/' + 'notified/set'
+    //   })
+    //   .success(function(data) {
+    //     getInfo();
+    //     if (computeDanger(information[4]) && data !== 'notified') {
+    //       $.ajax({
+    //         url: 'http://10.32.176.4/x+=13/' + 'notified/set'
+    //       })
+    //       updateHistoryLog();
+    //     }
+    //   })
+    // }
+
+    function updateHistoryLog() {
+      getInfo();
+      place.push(information[0]);
+      temp.push(information[1]);
+      people.push(information[2]);
+      humidity.push(information[3]);
+      smoke.push(information[4]);
+      gas.push(information[5]);
+      if (place[place.length - 1] !== undefined) updateTable(1);
+      // $.ajax({
+      //   url: 'http://10.32.176.4/x+=13/' + 'notified/set'
+      // })
+      // .success(function(data) {
+      //   getInfo();
+      //   if (data == 'notified') {
+      //     $.ajax({
+      //       url: 'http://10.32.176.4/x+=13/' + 'not notified/set'
+      //     })
+      //   }
+      // })
+    }
+    getFirstData();
+    // setInterval(alertFire, 1500)
+    setInterval(updateHistoryLog, 2000)
+  </script>
+</body>
+
+</html>
